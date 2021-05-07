@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-var launchers = 10; //chnage this (bots * 5)
+var launchers = 10; //change this (bots * 5)
 
 (function myLoop(i) {
     setTimeout(function() {
