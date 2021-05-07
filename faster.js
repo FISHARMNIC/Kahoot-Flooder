@@ -1,18 +1,18 @@
 const puppeteer = require('puppeteer');
 
 
-var gameid = 6639063
-var botnum = 5
+var gameid = 6639063 //change this
+var botnum = 5 //don't change this
 
 async function nbot() {
 
-    const browser = await puppeteer.launch({ headless: true }) //{ headless: false } <- to avoid handshake kicking
+    const browser = await puppeteer.launch({ headless: true })
 
     var page = [];
 
     for (n = 0; n < botnum; n++) {
         page[n] = await browser.newPage();
-        page[n].goto('https://kahoot.it'); //, { waitUntil: 'networkidle2' }
+        page[n].goto('https://kahoot.it');
     }
 
     for (n = 0; n < botnum; n++) {
@@ -20,11 +20,10 @@ async function nbot() {
         //type id
         await page[n].focus('input[name=gameId]');
         await page[n].keyboard.type(`${gameid}`);
-        //setTimeout(function(){ page[n].keyboard.press('Enter'); }, 3000);
         page[n].keyboard.press('Enter');
-
+        
+        //wait for redirect
         await page[n].waitForNavigation();
-        //await page.pdf({ path: 'kahootbot/s1.pdf', format: 'a4' });
 
         //type user
         await page[n].focus('input[name=nickname]');
@@ -42,9 +41,6 @@ function rnduser() {
     }
     return build.join('')
 }
-///for (r = 0; r < botnum; r++) {
-    //setTimeout(function(){ nbot() }, 3000);
-    nbot()
-    
 
-//}
+nbot()
+
