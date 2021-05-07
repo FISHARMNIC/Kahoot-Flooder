@@ -5,7 +5,7 @@ var launchers = 10; //bots * 5
 
 (function myLoop(i) {
     setTimeout(function() {
-        exec("node /Users/squijano/Documents/jsprojects/kahootbot/faster.js") //  your code here                
-        if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
+        exec("node [FASTER.JS GLOBAL FILE LOCATION]") // <- delete the [] too please                
+        if (--i) myLoop(i);
     }, 10000)
 })(launchers);
